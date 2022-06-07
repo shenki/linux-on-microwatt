@@ -74,7 +74,7 @@ below to build your own artifacts.
 
    First configure FuseSoC as above.
 
-   Replace arty_a7-100 with arty_a7-35 if you have an Arty A7 35T.
+   Replace `arty_a7-100` with `arty_a7-35` if you have an Arty A7 35T.
 
    ```
    fusesoc run --build --target=arty_a7-100 microwatt --no_bram --memory_size=0
@@ -84,12 +84,16 @@ below to build your own artifacts.
 
 ### Software components
 
-1. Use buildroot to create a userspace
+### Use buildroot to create a userspace
 
    A small change is required to glibc in order to support the VMX/AltiVec-less
    Microwatt, as float128 support is mandiatory and for this in GCC requires
    VSX/AltiVec. This change is included in Joel's buildroot fork, along with a
    defconfig:
+
+   Note that this will also build the Linux kernel, so you do not need to build
+   it sparely.
+
    ```
    git clone -b microwatt https://github.com/shenki/buildroot
    cd buildroot
@@ -97,9 +101,13 @@ below to build your own artifacts.
    make
    ```
 
-   The output is `output/images/rootfs.cpio`.
+   The output is `output/images/rootfs.cpio`
 
-2. Build the Linux kernel
+   The kernel is `output/images/dtbImage.microwatt.elf`, which embeds a copy of rootfs.cpio.
+
+
+### Build the Linux kernel
+
    ```
    git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
    cd linux
