@@ -1,18 +1,16 @@
-<p align="center">
-<img src="media/microwatt-title.png" alt="Microwatt">
-</p>
+# Linux on Microwatt
 
-# Microwatt
-
-Microwatt is an open source POWER ISA softcore written in VHDL 2008. It aims to
-be simple and easy to understand.
+[Microwatt](https://github.com/antonblanchard/microwatt) is an open source
+POWER ISA softcore written in VHDL 2008. It aims to be simple and easy to
+understand.
 
 Mainline Linux supports Microwatt as of v5.14.
 
-These instructions are for the Arty A7, which is the best tested
-platform. There are [other
-instructions](https://codeconstruct.com.au/docs/microwatt-orangecrab/) for
-testing tested on the OrangeCrab.
+These instructions are for the Arty A7, which is the most common FPGA dev board
+used by Microwatt developers.
+
+There are [other instructions](https://codeconstruct.com.au/docs/microwatt-orangecrab/)
+written by Matt from Code Construct for testing on the OrangeCrab.
 
 Microwatt can also be built as part of a LiteX SoC. This configuration is not
 as well tested, and is not documented by these ininstructions.
@@ -119,7 +117,7 @@ Instead of flashing Linux to the SPI NOR, we can load it over the Ethernet
 connection on the Arty.
 
 To do this we use a fork of u-boot that supports Microwatt and the LiteEth
-periperhal. Follow the instructions above and instead of flashing Linux, flash
+peripheral. Follow the instructions above and instead of flashing Linux, flash
 u-boot.elf to the same location:
 
 ```
