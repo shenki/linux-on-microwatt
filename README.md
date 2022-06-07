@@ -31,8 +31,8 @@ below to build your own artifacts.
    For example:
 
    ```
-   microwatt/openocd/flash-arty -f a100 images/microwatt_0.bit
-   microwatt/openocd/flash-arty -f a100 images/dtbImage.microwatt.elf -t bin -a 0x400000
+   openocd/flash-arty -f a100 images/microwatt_0.bit
+   openocd/flash-arty -f a100 images/dtbImage.microwatt.elf -t bin -a 0x400000
    ```
 
 2. Connect to the second USB TTY device exposed by the FPGA
@@ -121,7 +121,7 @@ peripheral. Follow the instructions above and instead of flashing Linux, flash
 u-boot.elf to the same location:
 
 ```
-   microwatt/openocd/flash-arty -f $ARTY images/u-boot -t bin -a $FLASH_ADDRESS
+   openocd/flash-arty -f $ARTY images/u-boot -t bin -a $FLASH_ADDRESS
 ```
 
 ```
